@@ -1,4 +1,4 @@
-package se.dungeonboy;
+package se.player;
 
 public interface Dungeonboy {
 
