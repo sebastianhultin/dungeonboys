@@ -6,7 +6,6 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import se.dungeonboys.DungeonboysGame;
 
 public class TestGameView extends GameView{
-	
 	Texture texture = new Texture("man.png");
 	Texture bg = new Texture("bg.png");
 
