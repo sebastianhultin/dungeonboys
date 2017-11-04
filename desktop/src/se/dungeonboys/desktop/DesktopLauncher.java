@@ -9,8 +9,8 @@ public class DesktopLauncher {
 		LwjglApplicationConfiguration config = new LwjglApplicationConfiguration();
 		
 		config.title = "DungeonBoyz";
-		config.width = 1024;
-		config.height = 768;
+		config.width = 1500;
+		config.height = 1000;
 		
 		
 		new LwjglApplication(new DungeonboysGame(), config);

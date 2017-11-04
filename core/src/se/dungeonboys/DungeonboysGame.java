@@ -6,12 +6,12 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 
 
 
-import se.dungeonboys.screen.MainMenuScreen;
+import se.dungeonboys.screen.MoventTestScreen;
 
 public class DungeonboysGame extends Game {
 	
-	public static int SCREEN_HEIGHT = 1024;
-	public static int SCREEN_WIDTH = 768;
+	public static int SCREEN_HEIGHT = 700;
+	public static int SCREEN_WIDTH = 1100;
 	
 	public SpriteBatch batch;
 	
@@ -19,12 +19,12 @@ public class DungeonboysGame extends Game {
 	public void create () {
 		batch = new SpriteBatch();
 		Gdx.gl.glClearColor(1, 0, 0, 1);
-		this.setScreen(new MainMenuScreen(this));
+		this.setScreen(new MoventTestScreen(this));
 	}
 
 	@Override
 	public void render () {
-		super.render();
+		super.render(); // Impotant, otherwise render() do not run on the ScreenAdapters
 	}
 	
 	@Override
