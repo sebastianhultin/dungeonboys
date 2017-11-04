@@ -5,15 +5,24 @@ import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.GL20;
 import com.badlogic.gdx.graphics.Texture;
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.badlogic.gdx.physics.box2d.BodyDef.BodyType;
 
 import se.dungeonboys.gamview.GameViewManager;
 import se.dungeonboys.gamview.MenuGameView;
+import se.dungeonboys.gamview.TestGameView;
 
 public class DungeonboysGame extends ApplicationAdapter {
+	
+	public static int SCREEN_HEIGHT = 1024;
+	public static int SCREEN_WIDTH = 768;
+	
+	
+	
 	
 	private GameViewManager gameViewManager;
 	SpriteBatch spriteBatch;
 	Texture img;
+	BodyType bodyType;
 	
 	@Override
 	public void create () {
@@ -21,7 +30,7 @@ public class DungeonboysGame extends ApplicationAdapter {
 		gameViewManager = new GameViewManager();
 		img = new Texture("badlogic.jpg");
 		Gdx.gl.glClearColor(1, 0, 0, 1);
-		gameViewManager.push(new MenuGameView(gameViewManager));
+		gameViewManager.push(new TestGameView(gameViewManager));
 	}
 
 	@Override
