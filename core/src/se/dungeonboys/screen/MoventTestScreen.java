@@ -1,7 +1,5 @@
 package se.dungeonboys.screen;
 
-import java.awt.Graphics2D;
-import java.awt.RenderingHints.Key;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.Input.Keys;
@@ -13,6 +11,7 @@ import com.badlogic.gdx.graphics.Texture.TextureFilter;
 import com.badlogic.gdx.graphics.g2d.Sprite;
 import com.badlogic.gdx.math.Rectangle;
 import com.badlogic.gdx.math.Vector2;
+import com.badlogic.gdx.utils.Array;
 
 import se.dungeonboys.DungeonboysGame;
 
@@ -22,6 +21,8 @@ public class MoventTestScreen extends ScreenAdapter {
 	Texture man;
 	Rectangle icon;
 	Sprite sprite;
+	
+	Array<Projectile> projectiles;
 
 	DungeonboysGame dungeonboysGame;
 	OrthographicCamera camera;
@@ -43,7 +44,10 @@ public class MoventTestScreen extends ScreenAdapter {
 		
 		sprite = new Sprite(man);
 		sprite.setSize(200, 200);
-
+		sprite.setRotation(180);
+		
+		projectiles = new Array<MoventTestScreen.Projectile>();
+ 
 	}
 
 	@Override
@@ -73,14 +77,18 @@ public class MoventTestScreen extends ScreenAdapter {
 		//		}
 
 
-		if(Gdx.input.isKeyPressed(Keys.A)) 
-			icon.x -= 300 * Gdx.graphics.getDeltaTime();
+		if(Gdx.input.isKeyPressed(Keys.A))
+			icon.x -= 10;
+		
 		if(Gdx.input.isKeyPressed(Keys.D))
-			icon.x += 300*Gdx.graphics.getDeltaTime();
+			icon.x +=  10;
+		//	sprite.setRotation(270);
 		if (Gdx.input.isKeyPressed(Keys.W))
-			icon.y += 300*Gdx.graphics.getDeltaTime();
+			icon.y +=  10;
+		//	sprite.setRotation(90);
 		if (Gdx.input.isKeyPressed(Keys.S))
-			icon.y -= 300*Gdx.graphics.getDeltaTime();
+			icon.y -= 10;
+		//	sprite.setRotation(0);
 
 
 		if (Gdx.input.isKeyPressed(Keys.Q)) {
@@ -89,9 +97,23 @@ public class MoventTestScreen extends ScreenAdapter {
 		if (Gdx.input.isKeyPressed(Keys.E)) {
 			sprite.rotate(-5);
 		}
+		if (Gdx.input.isKeyJustPressed(Keys.SPACE)) {
+			//projectiles.add(new Projectile(sprite.getRotation()));
+		}
 
 
 
+	}
+	
+	private class Projectile {
+		public Projectile(Float rotation) {
+			Texture texture = new Texture("projectile2.png");
+			Sprite sprite = new Sprite(texture);
+			sprite.setRotation(rotation);
+			
+			
+			
+		}
 	}
 
 	private class MousePosition {
